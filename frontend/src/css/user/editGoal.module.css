@@ -1,0 +1,25 @@
+.input {
+  padding: 0.5rem;
+  width: 80%;
+  font: inherit;
+  background: #282a3b;
+  color: #fdfcff;
+  border: 2px solid #0dbacc;
+}
+.input:focus {
+  border: 2px solid #983a5e;
+}
+
+.btn {
+  background: #0dbacc;
+  border: 2px solid #003b4d;
+  color: #002e3b;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn:hover {
+  color: #fdfcff;
+  background: #1ae1f7;
+}

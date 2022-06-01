@@ -1,0 +1,24 @@
+@use "../variables" as vars;
+
+.actions {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.icon {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.icon:not(:last-of-type) {
+  margin-right: 8px;
+}
+
+.icon:hover:not(:last-of-type) {
+  color: vars.$clr-secondary;
+}
+
+.icon:hover:last-of-type {
+  color: vars.$clr-danger;
+}

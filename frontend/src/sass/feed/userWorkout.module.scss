@@ -1,0 +1,89 @@
+@use "../variables" as vars;
+@use "../mixins" as mixins;
+
+.container {
+  border: vars.$border-container;
+  width: 40rem;
+  color: vars.$clr-text--light;
+  padding: 1rem;
+  position: relative;
+  margin: 2rem 0;
+  transition: all 0.3s;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  * {
+    word-break: break-all;
+  }
+}
+
+.workoutImg {
+  width: 100%;
+  display: block;
+  margin: 1rem auto
+}
+
+.date {
+  word-break: keep-all;
+}
+
+.title {
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-feed {
+  margin-top: 2rem;
+}
+
+.notes {
+  margin: 1rem 0;
+}
+
+.actionBtn {
+  cursor: default;
+  transition: color 0.25s ease-in;
+  &:hover {
+    color: vars.$clr-secondary--lighter;
+  }
+}
+
+.userInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+
+  img {
+    width: 1.5rem;
+    border-radius: 50%;
+  }
+}
+
+.likesAndComments {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  gap: 1rem;
+  border-top: vars.$border-container;
+  div {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+}

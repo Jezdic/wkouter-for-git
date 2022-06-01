@@ -1,0 +1,75 @@
+@use "../variables.scss" as vars;
+@use "../mixins";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: last baseline;
+
+  gap: 1rem;
+  margin-bottom: 1rem;
+  input,
+  textarea {
+    padding: 0.5rem;
+    border: vars.$border-input;
+    background: vars.$clr-primary;
+    font: inherit;
+    color: inherit;
+  }
+}
+
+.container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  flex-direction: column;
+  width: 23rem;
+  margin-top: 2rem;
+  align-items: center;
+  background: vars.$clr-primary;
+  color: vars.$clr-text--light;
+  border: vars.$border-container;
+  padding: 1rem 0;
+  z-index: 10;
+  max-height: 42rem;
+  overflow-y: scroll;
+  @include mixins.scrollbars();
+}
+
+.notes {
+  height: 4rem;
+}
+
+.addEx {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 1rem;
+
+  &:hover {
+    color: vars.$clr-secondary;
+  }
+}
+
+.exitBtn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.saveBtn {
+  @include mixins.primary-btn;
+  margin-top: 1rem;
+}
+
+@media (max-width: 450px) {
+  .container {
+    font-size: 0.8rem;
+    width: 20rem;
+  }
+}

@@ -1,0 +1,133 @@
+.container {
+  border: 2px solid #983a5e;
+  width: 20rem;
+  color: #fdfcff;
+  padding: 1rem;
+  position: relative;
+  margin: 2rem 0;
+  transition: all 0.3s;
+}
+.container a {
+  text-decoration: none;
+  color: inherit;
+}
+.container * {
+  word-break: break-all;
+}
+
+.date {
+  word-break: keep-all;
+}
+
+.title {
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-feed {
+  margin-top: 2rem;
+}
+
+.notes {
+  margin: 1rem 0;
+}
+
+.userInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.userInfo img {
+  width: 1.5rem;
+  border-radius: 50%;
+}
+
+.likesAndComments {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  gap: 1rem;
+  border-top: 2px solid #983a5e;
+}
+.likesAndComments div {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.actionBtn {
+  cursor: default;
+  transition: color 0.25s ease-in;
+}
+.actionBtn:hover {
+  color: #1ae1f7;
+}
+
+.comments {
+  margin-top: 1rem;
+}
+.comments textarea {
+  padding: 0.35rem;
+  width: 100%;
+  border: 2px solid #0dbacc;
+  color: #fdfcff;
+  background-color: #282a3b;
+}
+.comments button {
+  background: #0dbacc;
+  border: 2px solid #003b4d;
+  color: #002e3b;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.75rem;
+}
+.comments button:hover {
+  color: #fdfcff;
+  background: #1ae1f7;
+}
+.comments img {
+  width: 20px;
+  border-radius: 50%;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border: 2px solid #983a5e;
+}
+
+.commentAuthor {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.commentAuthor span {
+  font-weight: bold;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.commentHeader span {
+  font-size: 0.85rem;
+}

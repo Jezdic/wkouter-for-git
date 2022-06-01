@@ -1,0 +1,104 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 6rem;
+  padding: 0 2rem;
+  border: 2px solid #983a5e;
+  box-shadow: inset;
+  color: #fdfcff;
+}
+.nav button,
+.nav span {
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+}
+.nav button:hover,
+.nav span:hover {
+  color: #0dbacc;
+}
+.nav button:visited,
+.nav span:visited {
+  color: inherit;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.menuOptions {
+  position: absolute;
+  background: #282a3b;
+  border: 2px solid #983a5e;
+  right: 0;
+  height: 70vh;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  top: 6rem;
+  align-items: flex-end;
+  gap: 2rem;
+  padding-top: 6rem;
+  padding-right: 0.5rem;
+  border-top: none;
+  border-right: none;
+  z-index: 2;
+}
+.menuOptions a,
+.menuOptions span {
+  font-size: 1.5rem;
+}
+
+.userIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  padding-right: 1rem;
+  cursor: pointer;
+}
+.userIcon img {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid #0dbacc;
+}
+
+.btn {
+  text-decoration: none;
+  color: #fdfcff;
+  transition: color 0.2s;
+}
+.btn:hover {
+  color: #0dbacc;
+}
+
+@media (max-width: 500px) {
+  .menu {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 70vh;
+  }
+}
+@media (max-width: 800px) {
+  .nav {
+    border-left: none;
+    border-right: none;
+  }
+}

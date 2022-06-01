@@ -1,0 +1,31 @@
+.editContainer {
+  width: 80%;
+}
+
+.exerciseEdit {
+  display: flex;
+  align-self: center;
+  align-items: center;
+}
+.exerciseEdit input {
+  background: none;
+  padding: 0.5rem;
+  border: 2px solid #0dbacc;
+  font: inherit;
+  color: inherit;
+}
+
+.editName {
+  width: 30%;
+}
+
+.editNum {
+  width: 20%;
+}
+
+.deleteBtn {
+  margin-left: 4px;
+}
+.deleteBtn:hover {
+  color: #e24d67;
+}

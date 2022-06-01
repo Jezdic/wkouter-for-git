@@ -1,0 +1,11 @@
+.createBtn {
+  color: #fdfcff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.createBtn:hover {
+  color: #0dbacc;
+}

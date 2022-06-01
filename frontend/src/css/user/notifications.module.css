@@ -1,0 +1,116 @@
+.container {
+  width: 35rem;
+  background: #282a3b;
+  border: 2px solid #983a5e;
+  position: fixed;
+  top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+  color: #fdfcff;
+}
+
+.exitBtn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.exitBtn:hover {
+  color: #0dbacc;
+}
+
+.optionsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.infoForm {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+.infoForm input {
+  padding: 0.5rem;
+  border: 2px solid #0dbacc;
+  background: #282a3b;
+  color: inherit;
+}
+
+.saveBtn {
+  background: #0dbacc;
+  border: 2px solid #003b4d;
+  color: #002e3b;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+.saveBtn:hover {
+  color: #fdfcff;
+  background: #1ae1f7;
+}
+
+.avatar {
+  width: 6rem;
+  border-radius: 50%;
+  border: 2px solid #0dbacc;
+}
+
+.preview {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.changePhoto {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.photoLabel:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .optionsContainer {
+    flex-direction: column;
+  }
+
+  .container {
+    width: 18rem;
+    font-size: 0.75rem;
+    height: 90vh;
+    overflow-y: scroll;
+  }
+  .container::-webkit-scrollbar {
+    width: 1rem;
+    height: 1rem;
+  }
+  .container::-webkit-scrollbar-thumb {
+    background: #983a5e;
+    border: 5px solid #282a3b;
+    background-clip: padding-box;
+  }
+  .container::-webkit-scrollbar-track {
+    background: #282a3b;
+  }
+  .container {
+    scrollbar-face-color: #983a5e;
+    scrollbar-track-color: #282a3b;
+  }
+
+  .saveBtn {
+    font-size: 0.75rem;
+  }
+}

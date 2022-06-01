@@ -1,0 +1,71 @@
+@use "variables" as vars;
+@use "mixins";
+
+.container {
+  @include mixins.flex-col;
+  border: vars.$border-container;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+  color: vars.$clr-text--light;
+
+  a {
+    color: vars.$clr-text--light;
+    text-decoration: none;
+  }
+  a:hover {
+    border-bottom: 1px solid vars.$clr-text--light;
+  }
+}
+
+.centered {
+  @include mixins.centered-content;
+  height: 100vh;
+}
+
+.form {
+  margin: 1rem 3rem;
+  @include mixins.flex-col;
+  color: vars.$clr-text--light;
+  gap: 1rem;
+  position: relative;
+
+  label {
+    font-size: 1rem;
+    color: vars.$clr-text--light;
+  }
+
+  input {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: vars.$border-input;
+    color: vars.$clr-text--light;
+    background-color: vars.$clr-primary;
+    font-family: inherit;
+  }
+}
+
+.btn {
+  @include mixins.primary-btn;
+  margin-top: 1.5rem;
+  font-family: inherit;
+}
+
+.errors {
+  color: vars.$clr-danger;
+  position: absolute;
+  bottom: 3rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 430px) {
+  .container {
+    padding: 0;
+    width: 100%;
+    border: none;
+  }
+
+  .form {
+    margin: 0;
+  }
+}

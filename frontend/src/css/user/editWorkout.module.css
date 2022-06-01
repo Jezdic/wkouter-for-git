@@ -1,0 +1,94 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: last baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.form input,
+.form textarea {
+  padding: 0.5rem;
+  border: 2px solid #0dbacc;
+  background: #282a3b;
+  font: inherit;
+  color: inherit;
+}
+
+.container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  flex-direction: column;
+  width: 23rem;
+  margin-top: 2rem;
+  align-items: center;
+  background: #282a3b;
+  color: #fdfcff;
+  border: 2px solid #983a5e;
+  padding: 1rem 0;
+  z-index: 10;
+  max-height: 42rem;
+  overflow-y: scroll;
+}
+.container::-webkit-scrollbar {
+  width: 1rem;
+  height: 1rem;
+}
+.container::-webkit-scrollbar-thumb {
+  background: #983a5e;
+  border: 5px solid #282a3b;
+  background-clip: padding-box;
+}
+.container::-webkit-scrollbar-track {
+  background: #282a3b;
+}
+.container {
+  scrollbar-face-color: #983a5e;
+  scrollbar-track-color: #282a3b;
+}
+
+.notes {
+  height: 4rem;
+}
+
+.addEx {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.addEx:hover {
+  color: #0dbacc;
+}
+
+.exitBtn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+}
+.exitBtn:hover {
+  transform: scale(1.1);
+}
+
+.saveBtn {
+  background: #0dbacc;
+  border: 2px solid #003b4d;
+  color: #002e3b;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+.saveBtn:hover {
+  color: #fdfcff;
+  background: #1ae1f7;
+}
+
+@media (max-width: 450px) {
+  .container {
+    font-size: 0.8rem;
+    width: 20rem;
+  }
+}

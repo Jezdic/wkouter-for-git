@@ -1,0 +1,12 @@
+@use "../variables" as vars;
+@use "../mixins";
+
+.createBtn {
+  color: vars.$clr-text--light;
+  @include mixins.center-col;
+  cursor: pointer;
+  transition: color 0.2s;
+  &:hover {
+    color: vars.$clr-secondary;
+  }
+}

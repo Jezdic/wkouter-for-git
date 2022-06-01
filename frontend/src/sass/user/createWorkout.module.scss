@@ -1,0 +1,120 @@
+@use "../variables.scss" as vars;
+@use "../mixins";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: last baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  input,
+  textarea {
+    padding: 0.5rem;
+    border: vars.$border-input;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: inherit;
+  }
+}
+
+.container {
+  display: flex;
+  color: vars.$clr-text--light;
+  background: vars.$clr-primary;
+  position: fixed;
+  top: 10%;
+  width: 25rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  border: vars.$border-container;
+  z-index: 10;
+  max-height: 42rem;
+  overflow-y: scroll;
+  @include mixins.scrollbars();
+}
+
+.notes {
+  height: 4rem;
+}
+
+.exitBtn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+
+  &:hover {
+    color: vars.$clr-danger;
+  }
+}
+
+.photoUpload {
+  width: 7rem;
+  height: 7rem;
+  border: vars.$border-input;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: border-color .25s;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+  }
+}
+
+.photoUpload:hover {
+  border-color: white;
+}
+
+.photoContainer {
+  position: relative;
+}
+
+.photoInput {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;    
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.photoPreview{
+  width: 7rem;
+  height: 7rem;
+  margin-top: 1rem;
+  border: vars.$border-input;
+}
+
+.photoCancel {
+  position: absolute;
+}
+
+.addEx {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 1rem;
+
+  &:hover {
+    color: vars.$clr-secondary;
+  }
+}
+.saveBtn {
+  @include mixins.primary-btn;
+  margin-top: 1rem;
+}
+
+@media (max-width: 450px) {
+  .container {
+    font-size: 0.8rem;
+    width: 20rem;
+  }
+}

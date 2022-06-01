@@ -1,0 +1,24 @@
+@use "variables" as vars;
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  font-family: "Questrial", sans-serif;
+  color: vars.$clr-text--light;
+}
+
+.text--header {
+  font-size: 1.5rem;
+  border-bottom: 2px solid vars.$clr-text--light;
+}
+
+.text--nav {
+  font-size: 0.75rem !important;
+  border-bottom: 1px solid vars.$clr-text--light !important;
+  &:hover {
+    color: vars.$clr-text--light !important;
+    cursor: default !important;
+  }
+}

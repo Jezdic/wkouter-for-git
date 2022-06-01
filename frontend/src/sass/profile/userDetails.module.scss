@@ -1,0 +1,63 @@
+@use "../variables" as vars;
+@use "../mixins";
+
+.container {
+  display: flex;
+  gap: 1rem;
+  border: vars.$border-container;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  color: vars.$clr-text--light;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 8rem;
+    border-radius: 50%;
+    border: vars.$border-input;
+  }
+}
+
+.details {
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 3rem;
+  width: 30rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: vars.$clr-text--light;
+}
+
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+  .details {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    border: none;
+    padding: 0;
+  }
+}

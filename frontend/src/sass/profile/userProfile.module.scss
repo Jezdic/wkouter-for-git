@@ -1,0 +1,12 @@
+.heading {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+  img {
+    width: 64px;
+    border-radius: 0.5rem;
+  }
+  h1 {
+    font-weight: normal;
+  }
+}

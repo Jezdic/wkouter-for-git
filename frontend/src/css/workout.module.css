@@ -1,0 +1,95 @@
+.container {
+  border: 2px solid #983a5e;
+  color: #fdfcff;
+  padding: 2rem;
+  position: relative;
+  margin: 2rem 0;
+  width: 30rem;
+}
+.container * {
+  word-break: break-all;
+}
+
+.date {
+  word-break: keep-all;
+}
+
+.title {
+  font-weight: normal;
+  border-bottom: 1px solid black;
+  font-size: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header h1 {
+  font-size: 1.25rem;
+}
+
+.sticker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.75rem;
+  color: #fdfcff;
+  background: #983a5e;
+  padding: 0.35rem 1rem;
+}
+
+.actions {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.icon {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.icon:not(:last-of-type) {
+  margin-right: 8px;
+}
+
+.icon:hover:not(:last-of-type) {
+  color: #0dbacc;
+}
+
+.icon:hover:last-of-type {
+  color: #e24d67;
+}
+
+.notes {
+  margin: 1rem 0;
+}
+
+.completeBtn {
+  background: #0dbacc;
+  border: 2px solid #003b4d;
+  color: #002e3b;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.75rem;
+  margin-top: 1rem;
+}
+.completeBtn:hover {
+  color: #fdfcff;
+  background: #1ae1f7;
+}
+
+@media (max-width: 500px) {
+  .container {
+    max-width: 18rem;
+    padding: 1rem;
+    padding-top: 2rem;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+}

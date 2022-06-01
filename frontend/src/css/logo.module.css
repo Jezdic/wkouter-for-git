@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+.logo {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  font-family: "Questrial", sans-serif;
+  color: #fdfcff;
+}
+
+.text--header {
+  font-size: 1.5rem;
+  border-bottom: 2px solid #fdfcff;
+}
+
+.text--nav {
+  font-size: 0.75rem !important;
+  border-bottom: 1px solid #fdfcff !important;
+}
+.text--nav:hover {
+  color: #fdfcff !important;
+  cursor: default !important;
+}

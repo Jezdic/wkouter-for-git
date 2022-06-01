@@ -1,0 +1,27 @@
+@use "../variables" as vars;
+
+.container {
+    float: right;
+    width: 80%;
+    margin-bottom: .5rem;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+}
+
+.imgtest {
+    height: 30px;
+    width: 30px!important;
+    margin-right: .5rem;
+}
+
+.replyInput {
+    padding: 0.35rem;
+    width: 90%;
+    border: vars.$border-input;
+    color: vars.$clr-text--light;
+    background-color: vars.$clr-primary;
+    font: inherit;
+}

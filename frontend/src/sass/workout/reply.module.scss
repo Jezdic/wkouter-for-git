@@ -1,0 +1,54 @@
+@use "../variables"as vars;
+@use "../mixins"as mixins;
+
+.reply {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+margin-bottom: 0.5rem;
+padding: 0.5rem;
+border: vars.$border-container;
+word-break: keep-all;
+}
+
+.replyHeader {
+display: flex;
+justify-content: space-between;
+
+span {
+    font-size: 0.85rem;
+}
+}
+
+.replyAuthor {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    
+    span {
+        font-weight: bold;
+    }
+}
+
+.likesAndReplies {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .85rem;
+    gap: .5rem;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+}
+
+.actionBtn {
+    cursor: default;
+    transition: color 0.25s ease-in;
+
+    &:hover {
+        color: vars.$clr-secondary--lighter;
+    }
+}

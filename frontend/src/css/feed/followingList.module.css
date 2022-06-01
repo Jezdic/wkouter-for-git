@@ -1,0 +1,50 @@
+.container {
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  background: #282a3b;
+  border: 2px solid #983a5e;
+  padding: 1rem;
+  color: #fdfcff;
+}
+
+.heading {
+  font-weight: normal;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.exitBtn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+}
+.exitBtn:hover {
+  color: #0dbacc;
+}
+
+.followedUser {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0.5rem;
+}
+
+.profilePic {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.unfollowBtn {
+  margin-left: auto;
+}
+.unfollowBtn:hover {
+  color: #0dbacc;
+}
+
+.link {
+  text-decoration: none;
+  color: #fdfcff;
+}

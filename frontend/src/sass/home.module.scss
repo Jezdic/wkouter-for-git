@@ -1,0 +1,37 @@
+@use "variables" as vars;
+@use "mixins";
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  gap: 1rem;
+  z-index: -11;
+}
+
+body {
+  @include mixins.scrollbars();
+}
+
+.centered {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  min-height: 90vh;
+  width: 80vw;
+  height: auto;
+  position: relative;
+  margin-top: 1rem;
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+}

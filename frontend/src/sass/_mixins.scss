@@ -1,0 +1,56 @@
+@use "variables" as vars;
+
+@mixin center-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin centered-content {
+  display: grid;
+  place-items: center;
+}
+
+@mixin primary-btn {
+  background: vars.$clr-secondary;
+  border: 2px solid vars.$clr-secondary--darker;
+  color: vars.$clr-text--dark;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: vars.$clr-text--light;
+    background: vars.$clr-secondary--lighter;
+  }
+}
+
+@mixin scrollbars() {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: vars.$clr-border;
+    border: 5px solid vars.$clr-primary;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: vars.$clr-primary;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: vars.$clr-border;
+    scrollbar-track-color: vars.$clr-primary;
+  }
+}

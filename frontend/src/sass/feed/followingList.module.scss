@@ -1,0 +1,53 @@
+@use "../variables" as vars;
+
+.container {
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  background: vars.$clr-primary;
+  border: vars.$border-container;
+  padding: 1rem;
+  color: vars.$clr-text--light;
+}
+
+.heading {
+  font-weight: normal;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.exitBtn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+
+  &:hover {
+    color: vars.$clr-secondary;
+  }
+}
+
+.followedUser {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0.5rem;
+}
+
+.profilePic {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.unfollowBtn {
+  margin-left: auto;
+  &:hover {
+    color: vars.$clr-secondary;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: vars.$clr-text--light;
+}
