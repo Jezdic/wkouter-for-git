@@ -69,7 +69,10 @@ const Notifications = ({ toggle, setToggle }) => {
     (animationStyles, item) =>
       item && (
         <animated.div className={styles.container} style={animationStyles}>
-          notifications
+          <div className={styles.header}>
+            <span>notifications</span>
+            <button className={styles.markAllBtn}>mark all as read</button>
+          </div>
           <hr style={{ margin: "0.5rem 0" }} />
           <div>
             {notifications.map((notif) => (

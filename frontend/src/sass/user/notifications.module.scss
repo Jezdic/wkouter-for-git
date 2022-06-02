@@ -13,6 +13,16 @@
   color: vars.$clr-text--light;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.markAllBtn {
+  @include mixins.primary-btn;
+}
+
 .exitBtn {
   position: absolute;
   right: 8px;
