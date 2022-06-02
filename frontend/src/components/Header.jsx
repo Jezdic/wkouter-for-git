@@ -25,6 +25,7 @@ const Header = ({ setUserAccountMenu }) => {
   const transitions = useTransition(showMenu, options);
 
   const [showNotifs, setShowNotifs] = useState(false);
+  const [newNotifsCounter, setNewNotifsCounter] = useState(0);
 
   const logout = async () => {
     localStorage.removeItem("token");
@@ -53,7 +54,16 @@ const Header = ({ setUserAccountMenu }) => {
                 style={{ cursor: "pointer" }}
                 onClick={() => setShowNotifs(!showNotifs)}
               />
-              <Notifications toggle={showNotifs} setToggle={setShowNotifs} />
+              {newNotifsCounter > 0 && (
+                <div className={styles.newNotifsCounter}>
+                  {newNotifsCounter}
+                </div>
+              )}
+              <Notifications
+                toggle={showNotifs}
+                setNewNotifsCounter={setNewNotifsCounter}
+                setToggle={setShowNotifs}
+              />
             </div>
             {location.pathname === "/home/feed" ? (
               <Link to='' className={styles.btn}>
