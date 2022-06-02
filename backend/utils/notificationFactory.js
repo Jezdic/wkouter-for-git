@@ -1,25 +1,23 @@
 const Notification = require('../models/notificationModel');
 
 const createAndSendNotification = async (type, data) => {
-  const { notifierUsername } = data;
-
-  let notificationMessage = `${notifierUsername}`;
+  let notificationMessage;
 
   switch (type) {
     case 'likeWorkout':
-      notificationMessage += ' liked your workout.';
+      notificationMessage = ' liked your workout.';
       break;
     case 'likeComment':
-      notificationMessage += ' liked your comment.';
+      notificationMessage = ' liked your comment.';
       break;
     case 'comment':
-      notificationMessage += ' commented on your workout.';
+      notificationMessage = ' commented on your workout.';
       break;
     case 'reply':
-      notificationMessage += ' replied to your comment.';
+      notificationMessage = ' replied to your comment.';
       break;
     case 'follow':
-      notificationMessage += ' started following you.';
+      notificationMessage = ' started following you.';
       break;
     default:
       break;
