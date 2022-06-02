@@ -10,30 +10,31 @@
   box-shadow: inset;
   color: vars.$clr-text--light;
 
-  button,
-  span {
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.2s;
-    border: none;
-    background: none;
-    font: inherit;
-    color: inherit;
-
-    &:hover {
-      color: vars.$clr-secondary;
-    }
-
-    &:visited {
-      color: inherit;
-    }
-  }
+  
 }
 
 .menu {
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  &>button {
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+      border: none;
+      background: none;
+      font: inherit;
+      color: inherit;
+  
+      &:hover {
+        color: vars.$clr-secondary;
+      }
+  
+      &:visited {
+        color: inherit;
+      }
+    }
 }
 
 .mobileMenu {
