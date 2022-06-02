@@ -26,6 +26,7 @@ const Notification = ({
 
   return (
     <div className={styles.container}>
+      {!readStatus && <div className={styles.newNotifMark}></div>}
       <div className={styles.message}>
         <img
           className={styles.notifierImg}
@@ -38,7 +39,7 @@ const Notification = ({
         </div>
       </div>
       {workoutImg ? (
-        <img className={styles.workoutImg} />
+        <img className={styles.workoutImg} src={workoutImg} />
       ) : !checkUserFollowed() ? (
         <button className={styles.followBtn}>follow</button>
       ) : (

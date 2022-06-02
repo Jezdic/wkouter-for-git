@@ -20,7 +20,7 @@ const options = {
 
 const dummyData = [
   {
-    readStatus: false,
+    readStatus: true,
     _id: "629895e3ac467828b8ca035d",
     notifierUsername: "tama",
     notifierImg: "user-61dad1eceb3fe22078d306be-1641730598389.jpeg",
@@ -39,7 +39,7 @@ const dummyData = [
       "http://res.cloudinary.com/dlsovnnst/image/upload/v1652654233/ahl8wcnvupej2rmg6mcw.jpg",
     notifiedUserId: "61daeb035d6091001666097b",
     notifiedUsername: "jezdic",
-    notificationMessage: " liked your workout.",
+    notificationMessage: " commented on your workout.",
     createdAt: "2022-06-02T10:49:57.463Z",
   },
 ];
