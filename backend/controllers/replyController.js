@@ -4,7 +4,6 @@ const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('../utils/appError');
 const ApiFeatures = require('../utils/apiFeatures');
-const mongoose = require('mongoose');
 const Workout = require('../models/workoutModel');
 
 const createAndSendNotification = require('../utils/notificationFactory');
