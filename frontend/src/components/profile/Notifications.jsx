@@ -55,6 +55,34 @@ const Notifications = ({ toggle, setToggle }) => {
     console.log(data);
   };
 
+  const fetchNotifs = async () => {
+    try {
+      const req = await fetch(
+        `${
+          import.meta.env.VITE_API_URL
+        }/notifications?page=${1}&limit=${4}&sort=-createdAt`,
+        {
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
+        }
+      );
+      const res = await req.json();
+      console.log(res);
+      if (res.status === "success") {
+        setNotifications(res.notifications);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      //setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchNotifs();
+  }, []);
+
   useEffect(() => {
     socket.on("RECEIVE_NOTIFICATION", (data) => console.log(data));
 
@@ -76,7 +104,7 @@ const Notifications = ({ toggle, setToggle }) => {
           <hr style={{ margin: "0.5rem 0" }} />
           <div>
             {notifications.map((notif) => (
-              <Notification notification={notif} />
+              <Notification notification={notif} key={notif._id} />
             ))}
           </div>
         </animated.div>
