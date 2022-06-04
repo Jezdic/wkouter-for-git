@@ -49,11 +49,19 @@ const Header = ({ setUserAccountMenu }) => {
               <span>{user.username}</span>
             </div>
             <div style={{ position: "relative" }}>
-              <IoMdNotificationsOutline
-                size={30}
-                style={{ cursor: "pointer" }}
-                onClick={() => setShowNotifs(!showNotifs)}
-              />
+              {showNotifs ? (
+                <AiOutlineClose
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setShowNotifs(false)}
+                  size={30}
+                />
+              ) : (
+                <IoMdNotificationsOutline
+                  size={30}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setShowNotifs(true)}
+                />
+              )}
               {newNotifsCounter > 0 && (
                 <div className={styles.newNotifsCounter}>
                   {newNotifsCounter}
