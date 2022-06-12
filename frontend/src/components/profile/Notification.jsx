@@ -35,7 +35,11 @@ const Notification = ({
         <div>
           <span style={{ fontWeight: "bold" }}>{notifierUsername}</span>
           {notificationMessage}{" "}
-          <ReactTimeAgo date={createdAt} timeStyle='twitter' locale='en-US' />
+          <ReactTimeAgo
+            date={createdAt}
+            timeStyle='round-minute'
+            locale='en-US'
+          />
         </div>
       </div>
       {workoutImg ? (

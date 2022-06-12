@@ -15,11 +15,21 @@ exports.getNotifications = catchAsync(async (req, res, next) => {
 
   const total = await Notification.countDocuments(docQuery);
 
+  const newNotifsQuery = { notifiedUserId: req.user.id, readStatus: false };
+
+  const totalNewNotifs = await Notification.countDocuments(newNotifsQuery);
+
   res.status(200).json({
     status: 'success',
     total,
+    totalNewNotifs,
     notifications
   });
 });
 
-exports.markAsRead = catchAsync(async (req, res, next) => {});
+exports.markAsRead = catchAsync(async (req, res, next) => {
+  //find notification by id and update read status to true
+  const { notificationId } = req.params;
+
+  await Notification.findByIdAndUpdate(notificationId, { readStatus: true });
+});

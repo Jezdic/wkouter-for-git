@@ -9,6 +9,8 @@ import { BeatLoader } from "react-spinners";
 
 import { AiOutlineMinusCircle } from "react-icons/ai";
 
+import { PulseLoader } from "react-spinners";
+
 import styles from "../../sass/user/notifications.module.scss";
 import Notification from "./Notification";
 
@@ -46,6 +48,10 @@ const options = {
 
 const Notifications = ({ toggle, setToggle, setNewNotifsCounter }) => {
   const [notifications, setNotifications] = useState([]);
+  const [totalNotifs, setTotalNotifs] = useState(0);
+  const [loadingNotifs, setLoadingNotifs] = useState(false);
+
+  const [page, setPage] = useState(2);
 
   const socket = useContext(SocketContext);
 
@@ -56,12 +62,13 @@ const Notifications = ({ toggle, setToggle, setNewNotifsCounter }) => {
     setNewNotifsCounter((prev) => prev + 1);
   };
 
-  const fetchNotifs = async () => {
+  const fetchNotifs = async (page = 1) => {
     try {
+      setLoadingNotifs(true);
       const req = await fetch(
         `${
           import.meta.env.VITE_API_URL
-        }/notifications?page=${1}&limit=${4}&sort=-createdAt`,
+        }/notifications?page=${page}&limit=4&sort=-createdAt`,
         {
           headers: {
             authorization: localStorage.getItem("token"),
@@ -70,21 +77,32 @@ const Notifications = ({ toggle, setToggle, setNewNotifsCounter }) => {
       );
       const res = await req.json();
       if (res.status === "success") {
-        setNotifications(res.notifications);
-        res.notifications.forEach(
-          (notif) =>
-            !notif.readStatus && setNewNotifsCounter((prev) => prev + 1)
-        );
+        const { notifications, total, totalNewNotifs } = res;
+
+        return { total, notifications, totalNewNotifs };
       }
     } catch (error) {
       console.log(error);
     } finally {
-      //setLoading(false);
+      setLoadingNotifs(false);
     }
   };
 
+  const handleLoadPrevNotifs = async () => {
+    const { notifications } = await fetchNotifs(page);
+
+    setNotifications((prevArr) => [...prevArr, ...notifications]);
+
+    setPage((p) => p + 1);
+  };
+
   useEffect(() => {
-    fetchNotifs();
+    (async () => {
+      const { total, notifications, totalNewNotifs } = await fetchNotifs();
+      setTotalNotifs(total);
+      setNewNotifsCounter(totalNewNotifs);
+      setNotifications(notifications);
+    })();
   }, []);
 
   useEffect(() => {
@@ -111,6 +129,19 @@ const Notifications = ({ toggle, setToggle, setNewNotifsCounter }) => {
               <Notification notification={notif} key={notif._id} />
             ))}
           </div>
+          {totalNotifs > notifications.length && !loadingNotifs && (
+            <button
+              className={styles.prevNotifsBtn}
+              onClick={handleLoadPrevNotifs}
+            >
+              load previous
+            </button>
+          )}
+          {loadingNotifs && (
+            <div style={{ alignSelf: "center" }}>
+              <PulseLoader color='white' />
+            </div>
+          )}
         </animated.div>
       )
   );

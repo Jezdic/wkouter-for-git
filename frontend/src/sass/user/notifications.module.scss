@@ -23,85 +23,8 @@
   @include mixins.primary-btn;
 }
 
-.exitBtn {
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  cursor: pointer;
-  font-size: 1.5rem;
-
-  &:hover {
-    color: vars.$clr-secondary;
-  }
-}
-
-.optionsContainer {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.infoForm {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  justify-content: flex-end;
-
-  input {
-    padding: 0.5rem;
-    border: vars.$border-input;
-    background: vars.$clr-primary;
-    color: inherit;
-  }
-}
-
-.saveBtn {
+.prevNotifsBtn {
   @include mixins.primary-btn;
-  margin-top: 1rem;
-}
-
-.avatar {
-  width: 6rem;
-  border-radius: 50%;
-  border: vars.$border-input;
-}
-
-.preview {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-}
-
-.changePhoto {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-.photoLabel {
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-@media (max-width: 600px) {
-  .optionsContainer {
-    flex-direction: column;
-  }
-
-  .container {
-    width: 18rem;
-    font-size: 0.75rem;
-    height: 90vh;
-    overflow-y: scroll;
-    @include mixins.scrollbars();
-  }
-
-  .saveBtn {
-    font-size: 0.75rem;
-  }
+  margin-top: 0.5rem;
+  align-self: center;
 }
