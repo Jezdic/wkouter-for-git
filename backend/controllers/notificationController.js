@@ -32,4 +32,6 @@ exports.markAsRead = catchAsync(async (req, res, next) => {
   const { notificationId } = req.params;
 
   await Notification.findByIdAndUpdate(notificationId, { readStatus: true });
+
+  res.status(201).end();
 });

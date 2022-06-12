@@ -96,6 +96,33 @@ const Notifications = ({ toggle, setToggle, setNewNotifsCounter }) => {
     setPage((p) => p + 1);
   };
 
+  const handleAllRead = () => {
+    //for all notifications in the arr, if they are not read
+    //send patch req to server and update ui
+    let markedNotifsNumber = 0;
+
+    notifications.forEach(async (notif) => {
+      if (!notif.readStatus) {
+        markedNotifsNumber++;
+        await fetch(
+          `${import.meta.env.VITE_API_URL}/notifications/${notif._id}`,
+          {
+            headers: {
+              authorization: localStorage.getItem("token"),
+            },
+            method: "PATCH",
+          }
+        );
+      }
+    });
+
+    setNotifications(
+      notifications.map((notif) => ({ ...notif, readStatus: true }))
+    );
+
+    setNewNotifsCounter((c) => c - markedNotifsNumber);
+  };
+
   useEffect(() => {
     (async () => {
       const { total, notifications, totalNewNotifs } = await fetchNotifs();
@@ -121,7 +148,11 @@ const Notifications = ({ toggle, setToggle, setNewNotifsCounter }) => {
         <animated.div className={styles.container} style={animationStyles}>
           <div className={styles.header}>
             <span>notifications</span>
-            <button className={styles.markAllBtn}>mark all as read</button>
+            {notifications.some((notif) => !notif.readStatus) && (
+              <button className={styles.markAllBtn} onClick={handleAllRead}>
+                mark all as read
+              </button>
+            )}
           </div>
           <hr style={{ margin: "0.5rem 0" }} />
           <div>
