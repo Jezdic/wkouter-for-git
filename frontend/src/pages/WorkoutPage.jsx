@@ -16,7 +16,6 @@ const WorkoutPage = () => {
   const [loading, setLoading] = useState(true);
 
   const fetchWorkout = async () => {
-    //fetch workout from api
     try {
       const req = await fetch(
         `${import.meta.env.VITE_API_URL}/workouts/${workoutId}`,
