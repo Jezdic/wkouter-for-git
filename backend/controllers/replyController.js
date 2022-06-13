@@ -35,7 +35,10 @@ exports.postReply = catchAsync(async (req, res) => {
     commentId
   });
 
-  const comment = await Comment.findById(commentId);
+  const comment = await Comment.findById(commentId).populate({
+    path: 'user',
+    select: '_id username'
+  });
 
   const { workout } = comment;
 
@@ -56,7 +59,7 @@ exports.postReply = catchAsync(async (req, res) => {
 
   const { photo: workoutImg } = workoutObj;
 
-  const { _id: notifiedUserId, username: notifiedUsername } = workoutObj.user;
+  const { _id: notifiedUserId, username: notifiedUsername } = comment.user;
 
   const notificationData = {
     notifierUsername,
@@ -67,7 +70,8 @@ exports.postReply = catchAsync(async (req, res) => {
     notifiedUsername
   };
 
-  createAndSendNotification('reply', notificationData);
+  if (notifierUsername !== notifiedUsername)
+    createAndSendNotification('reply', notificationData);
 
   res.status(204).end();
 });

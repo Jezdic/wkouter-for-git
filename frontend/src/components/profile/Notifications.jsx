@@ -58,6 +58,7 @@ const Notifications = ({ toggle, setToggle, setNewNotifsCounter }) => {
   useEscape(setToggle);
 
   const handleReceiveNotification = (notif) => {
+    console.log({ notif });
     setNotifications((prev) => [notif, ...prev]);
     setNewNotifsCounter((prev) => prev + 1);
   };

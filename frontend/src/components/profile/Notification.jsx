@@ -112,6 +112,9 @@ const Notification = ({
       ) : (
         <></>
       )}
+      {notificationMessage.includes("") && (
+        <span className={styles.previewComment}></span>
+      )}
     </div>
   );
 };
