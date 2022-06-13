@@ -23,10 +23,6 @@ const getUser = username =>
   onlineUsers.find(user => user.username === username);
 
 notifyUser = notification => {
-  // get notification object, check if the notified
-  //username is online, socket.emit(notification)
-  //if not, return
-  console.log(notification);
   const notifiedUser = getUser(notification.notifiedUsername);
 
   if (!notifiedUser) return;

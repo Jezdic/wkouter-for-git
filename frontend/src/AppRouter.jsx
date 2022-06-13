@@ -21,11 +21,14 @@ const AppRouter = () => {
   useEffect(() => {
     const user = localStorage.getItem("user");
 
-    if (user) setUser(JSON.parse(user));
+    if (!user) return;
+    const parsedUser = JSON.parse(user);
+    setUser(parsedUser);
+    socket.emit("LOGIN_SUCCESS", parsedUser.username);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(user));
+    if (user) localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
 
   return (
