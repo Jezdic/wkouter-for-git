@@ -8,6 +8,7 @@
   background: vars.$clr-primary;
   color: vars.$clr-text--light;
   border: vars.$border-input;
+  resize: none;
 
   &:focus {
     border: vars.$border-container;
