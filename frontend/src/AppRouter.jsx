@@ -24,6 +24,10 @@ const AppRouter = () => {
     if (user) setUser(JSON.parse(user));
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
+
   return (
     <BrowserRouter>
       <SocketContext.Provider value={socket}>
