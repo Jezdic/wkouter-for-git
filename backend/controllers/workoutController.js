@@ -98,7 +98,10 @@ exports.getFeed = catchAsync(async (req, res, next) => {
 });
 
 exports.getOneWorkout = catchAsync(async (req, res, next) => {
-  const workout = await Workout.findById(req.params.workoutId);
+  const workout = await Workout.findById(req.params.workoutId).populate({
+    path: 'user',
+    select: 'username photo'
+  });
 
   if (!workout) return next(new AppError('No workout found with that ID', 404));
 
