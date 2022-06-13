@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import MyProfile from "./pages/MyProfile";
 import Feed from "./pages/Feed";
 import UserProfile from "./pages/UserProfile";
+import WorkoutPage from "./pages/WorkoutPage";
 
 import styles from "./sass/App.module.scss";
 
@@ -40,6 +41,10 @@ const AppRouter = () => {
             >
               <Route path='' element={<MyProfile />}></Route>
               <Route path='feed' element={<Feed />}></Route>
+              <Route
+                path='workout/:workoutId'
+                element={<WorkoutPage />}
+              ></Route>
               <Route path='user/:username' element={<UserProfile />}></Route>
             </Route>
           </Routes>

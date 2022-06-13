@@ -157,7 +157,13 @@ const Notifications = ({ toggle, setToggle, setNewNotifsCounter }) => {
           <hr style={{ margin: "0.5rem 0" }} />
           <div>
             {notifications.map((notif) => (
-              <Notification notification={notif} key={notif._id} />
+              <Notification
+                notification={notif}
+                key={notif._id}
+                setToggle={setToggle}
+                setNewNotifsCounter={setNewNotifsCounter}
+                setNotifications={setNotifications}
+              />
             ))}
           </div>
           {totalNotifs > notifications.length && !loadingNotifs && (
