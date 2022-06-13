@@ -12,6 +12,9 @@
   &:hover {
     background-color: vars.$clr-primary-light;
   }
+  &:hover .previewComment {
+    display: block;
+  }
 }
 
 .notifierImg {
@@ -42,4 +45,12 @@
   background-color: white;
   position: absolute;
   left: -0.75rem;
+}
+
+.previewComment {
+  display: none;
+  margin-top: 1rem;
+  &:hover {
+    text-decoration: underline;
+  }
 }

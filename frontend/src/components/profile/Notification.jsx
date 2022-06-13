@@ -7,6 +7,7 @@ import UserContext from "../../UserContext";
 import styles from "../../sass/user/notification.module.scss";
 
 import ReactTimeAgo from "react-time-ago";
+import CommentPreview from "./CommentPreview";
 
 const Notification = ({
   notification: {
@@ -28,6 +29,7 @@ const Notification = ({
     setUser,
   } = useContext(UserContext);
 
+  const [displayCommentPreview, setDisplayCommentPreview] = useState(false);
   const navigate = useNavigate();
 
   const checkUserFollowed = () =>
@@ -58,7 +60,8 @@ const Notification = ({
   const handleClickNotif = async (e) => {
     if (!readStatus) await markNotifAsRead();
 
-    if (e.target.innerText === "follow") return;
+    if (e.target.innerText === "follow" || e.target.innerText === "preview")
+      return;
 
     setToggle(false);
 
@@ -86,36 +89,46 @@ const Notification = ({
   };
 
   return (
-    <div className={styles.container} onClick={handleClickNotif}>
-      {!readStatus && <div className={styles.newNotifMark}></div>}
-      <div className={styles.message}>
-        <img
-          className={styles.notifierImg}
-          src={`${import.meta.env.VITE_STATIC_URL}/img/users/${notifierImg}`}
-        />
-        <div>
-          <span style={{ fontWeight: "bold" }}>{notifierUsername}</span>
-          {notificationMessage}{" "}
-          <ReactTimeAgo
-            date={createdAt}
-            timeStyle='round-minute'
-            locale='en-US'
+    <>
+      <div className={styles.container} onClick={handleClickNotif}>
+        {!readStatus && <div className={styles.newNotifMark}></div>}
+        <div className={styles.message}>
+          <img
+            className={styles.notifierImg}
+            src={`${import.meta.env.VITE_STATIC_URL}/img/users/${notifierImg}`}
           />
+          <div>
+            <span style={{ fontWeight: "bold" }}>{notifierUsername}</span>
+            {notificationMessage}{" "}
+            <ReactTimeAgo
+              date={createdAt}
+              timeStyle='round-minute'
+              locale='en-US'
+            />{" "}
+            {(notificationMessage.includes("commented") ||
+              notificationMessage.includes("replied")) &&
+              !displayCommentPreview && (
+                <span
+                  className={styles.previewComment}
+                  onClick={() => setDisplayCommentPreview(true)}
+                >
+                  preview
+                </span>
+              )}
+          </div>
         </div>
+        {workoutImg ? (
+          <img className={styles.workoutImg} src={workoutImg} />
+        ) : !checkUserFollowed() ? (
+          <button className={styles.followBtn} onClick={handleFollow}>
+            follow
+          </button>
+        ) : (
+          <></>
+        )}
       </div>
-      {workoutImg ? (
-        <img className={styles.workoutImg} src={workoutImg} />
-      ) : !checkUserFollowed() ? (
-        <button className={styles.followBtn} onClick={handleFollow}>
-          follow
-        </button>
-      ) : (
-        <></>
-      )}
-      {notificationMessage.includes("") && (
-        <span className={styles.previewComment}></span>
-      )}
-    </div>
+      {displayCommentPreview && <CommentPreview />}
+    </>
   );
 };
 
