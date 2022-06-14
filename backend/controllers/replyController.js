@@ -29,7 +29,7 @@ exports.getReplies = catchAsync(async (req, res) => {
 exports.postReply = catchAsync(async (req, res) => {
   const { commentId } = req.params;
 
-  await Reply.create({
+  const { id: replyId } = await Reply.create({
     ...req.body,
     user: req.user.id,
     commentId
@@ -67,6 +67,7 @@ exports.postReply = catchAsync(async (req, res) => {
     workoutId: workout,
     workoutImg,
     notifiedUserId,
+    replyId,
     notifiedUsername
   };
 

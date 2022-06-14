@@ -34,7 +34,7 @@ exports.getComments = catchAsync(async (req, res) => {
 exports.postComment = catchAsync(async (req, res) => {
   const { workoutId } = req.params;
 
-  await Comment.create({
+  const { id: commentId } = await Comment.create({
     ...req.body,
     user: req.user.id,
     workout: workoutId
@@ -61,7 +61,8 @@ exports.postComment = catchAsync(async (req, res) => {
     workoutId,
     workoutImg,
     notifiedUserId,
-    notifiedUsername
+    notifiedUsername,
+    commentId
   };
 
   createAndSendNotification('comment', notificationData);
