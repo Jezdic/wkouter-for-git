@@ -108,8 +108,10 @@ exports.deleteComment = catchAsync(async (req, res, next) => {
 });
 
 exports.likeReply = catchAsync(async (req, res, next) => {
-  const reply = await Reply.findById(req.params.replyId);
-  console.log(reply);
+  const reply = await Reply.findById(req.params.replyId).populate({
+    path: 'user',
+    select: 'username _id'
+  });
 
   let likeStatus;
 
@@ -131,7 +133,7 @@ exports.likeReply = catchAsync(async (req, res, next) => {
 
     const { id: workoutId, photo: workoutImg } = workout;
 
-    const { _id: notifiedUserId, username: notifiedUsername } = workout.user;
+    const { _id: notifiedUserId, username: notifiedUsername } = reply.user;
 
     const notificationData = {
       notifierUsername,

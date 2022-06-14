@@ -36,7 +36,7 @@ const WorkoutPage = () => {
     }
   };
 
-  useEffect(fetchWorkout, []);
+  useEffect(fetchWorkout, [workoutId]);
 
   if (loading)
     return (

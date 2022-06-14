@@ -30,6 +30,18 @@
   }
 }
 
+.replyContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0.25rem 0;
+}
+
+.replyImg {
+  width: 25px;
+  border-radius: 50%;
+}
+
 .actionBtn,
 .closeBtn {
   cursor: pointer;

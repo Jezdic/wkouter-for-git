@@ -9,13 +9,32 @@ import styles from "../../sass/profile/commentPreview.module.scss";
 const CommentPreview = ({ setDisplayCommentPreview, commentId, replyId }) => {
   const [loading, setLoading] = useState(true);
   const [preview, setPreview] = useState();
+
   const [reply, setReply] = useState("");
+  const [replies, setReplies] = useState([]);
+
   const [isLiked, setIsLiked] = useState(false);
 
   const { photo, username } = JSON.parse(localStorage.getItem("user"));
 
-  const handlePostReply = () => {
-    //post reply to commentId and change ui
+  const handlePostReply = async (e) => {
+    e.preventDefault();
+
+    await fetch(
+      `${import.meta.env.VITE_API_URL}/comments/replies/${commentId}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: localStorage.getItem("token"),
+        },
+        body: JSON.stringify({
+          comment: reply,
+        }),
+      }
+    );
+    setReplies((reps) => [reply, ...reps]);
+    setReply("");
   };
 
   const handleLikeComment = async () => {
@@ -37,9 +56,9 @@ const CommentPreview = ({ setDisplayCommentPreview, commentId, replyId }) => {
   };
 
   const fetchComment = async () => {
-    const queryString = commentId
-      ? `commentId=${commentId}`
-      : `replyId=${replyId}`;
+    const queryString = replyId
+      ? `replyId=${replyId}`
+      : `commentId=${commentId}`;
 
     try {
       const req = await fetch(
@@ -87,6 +106,16 @@ const CommentPreview = ({ setDisplayCommentPreview, commentId, replyId }) => {
           {isLiked ? <AiFillHeart size={15} /> : <AiOutlineHeart size={15} />}
         </div>
       </div>
+      {replies.map((reply) => (
+        <div key={reply} className={styles.replyContainer}>
+          <img
+            alt='user'
+            className={styles.replyImg}
+            src={`${import.meta.env.VITE_STATIC_URL}/img/users/${photo}`}
+          />
+          {reply}
+        </div>
+      ))}
       <form onSubmit={handlePostReply} className={styles.commentForm}>
         <img
           alt='user'
