@@ -10,6 +10,7 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import Notifications from "./profile/Notifications";
 
 import styles from "../sass/header.module.scss";
+import SearchBar from "./SearchBar";
 
 const options = {
   from: { x: 100, zIndex: 100, opacity: 0 },
@@ -24,6 +25,8 @@ const Header = ({ setUserAccountMenu }) => {
   const location = useLocation();
   const transitions = useTransition(showMenu, options);
 
+  const [showLogo, setShowLogo] = useState(true);
+
   const [showNotifs, setShowNotifs] = useState(false);
   const [newNotifsCounter, setNewNotifsCounter] = useState(0);
 
@@ -37,7 +40,10 @@ const Header = ({ setUserAccountMenu }) => {
     <>
       <header className={styles.header}>
         <nav className={styles.nav}>
-          <Logo type={"nav"} />
+          <div className={styles.logoAndSearch}>
+            {showLogo && <Logo type={"nav"} />}
+            <SearchBar setShowLogo={setShowLogo} />
+          </div>
           <div className={styles.menu}>
             <div className={styles.userIcon} onClick={() => navigate("/home")}>
               <img
