@@ -100,7 +100,10 @@ exports.deleteComment = catchAsync(async (req, res, next) => {
 });
 
 exports.likeComment = catchAsync(async (req, res, next) => {
-  const comment = await Comment.findById(req.params.commentId);
+  const comment = await Comment.findById(req.params.commentId).populate({
+    path: 'user',
+    select: '_id username'
+  });
 
   let likeStatus;
 
@@ -120,7 +123,7 @@ exports.likeComment = catchAsync(async (req, res, next) => {
 
     const { id: workoutId, photo: workoutImg } = workout;
 
-    const { _id: notifiedUserId, username: notifiedUsername } = workout.user;
+    const { _id: notifiedUserId, username: notifiedUsername } = comment.user;
 
     const notificationData = {
       notifierUsername,
