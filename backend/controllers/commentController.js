@@ -73,13 +73,14 @@ exports.postComment = catchAsync(async (req, res) => {
 
 exports.getCommentPreview = catchAsync(async (req, res, next) => {
   let preview;
-  const { commentId, replyId } = req.body;
+  const { commentId, replyId } = req.query;
+  console.log({ commentId, replyId });
   if (commentId) preview = await Comment.findById(commentId);
   if (replyId) preview = await Reply.findById(replyId);
 
   if (!preview) return next(new AppError('Preview not found', 404));
 
-  res.status(200).json({ status: 'success', preview: preview.comment });
+  res.status(200).json({ status: 'success', preview });
 });
 
 exports.deleteMyComment = catchAsync(async (req, res, next) => {

@@ -1,0 +1,50 @@
+@use "../variables" as vars;
+
+.container {
+  padding: 0.5rem 1rem;
+  padding-right: 0;
+  border-left: 1px solid vars.$clr-border;
+  border-bottom: 1px solid vars.$clr-border;
+  position: relative;
+
+  margin-left: 1.25rem;
+}
+
+.commentInput {
+  padding: 0.35rem;
+  width: 90%;
+  border: vars.$border-input;
+  color: vars.$clr-text--light;
+  background-color: vars.$clr-primary;
+  font: inherit;
+}
+
+.commentForm {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+
+  img {
+    width: 30px;
+    border-radius: 50%;
+  }
+}
+
+.actionBtn,
+.closeBtn {
+  cursor: pointer;
+  transition: color 0.25s ease-in;
+
+  &:hover {
+    color: vars.$clr-secondary--lighter;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  right: 0;
+}
+
+.actionBtn {
+  margin-top: 0.25rem;
+}

@@ -22,7 +22,7 @@
 .workoutImg {
   width: 100%;
   display: block;
-  margin: 1rem auto
+  margin: 1rem auto;
 }
 
 .date {
@@ -49,7 +49,7 @@
 }
 
 .actionBtn {
-  cursor: default;
+  cursor: pointer;
   transition: color 0.25s ease-in;
   &:hover {
     color: vars.$clr-secondary--lighter;

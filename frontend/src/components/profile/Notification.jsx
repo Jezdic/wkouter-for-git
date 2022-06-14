@@ -18,6 +18,8 @@ const Notification = ({
     readStatus,
     workoutId,
     workoutImg,
+    commentId,
+    replyId,
     _id,
   },
   setToggle,
@@ -128,7 +130,11 @@ const Notification = ({
         )}
       </div>
       {displayCommentPreview && (
-        <CommentPreview setDisplayCommentPreview={setDisplayCommentPreview} />
+        <CommentPreview
+          setDisplayCommentPreview={setDisplayCommentPreview}
+          commentId={commentId}
+          replyId={replyId}
+        />
       )}
     </>
   );
