@@ -127,7 +127,9 @@ const Notification = ({
           <></>
         )}
       </div>
-      {displayCommentPreview && <CommentPreview />}
+      {displayCommentPreview && (
+        <CommentPreview setDisplayCommentPreview={setDisplayCommentPreview} />
+      )}
     </>
   );
 };

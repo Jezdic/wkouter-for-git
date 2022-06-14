@@ -5,7 +5,6 @@ import UserContext from "../../UserContext";
 import { SocketContext } from "../../utils/socketContext";
 
 import { animated, useTransition } from "react-spring";
-import { BeatLoader } from "react-spinners";
 
 import { AiOutlineMinusCircle } from "react-icons/ai";
 

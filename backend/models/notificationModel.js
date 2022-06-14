@@ -18,6 +18,8 @@ const notificationSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
+    commentId: mongoose.Schema.ObjectId,
+    replyId: mongoose.Schema.ObjectId,
     workoutImg: String,
     notifierImg: String,
     notifierUsername: String,
