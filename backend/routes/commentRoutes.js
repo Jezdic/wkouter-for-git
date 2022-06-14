@@ -12,6 +12,8 @@ router.route('/likeComment/:commentId').post(commentController.likeComment);
 
 router.route('/likeReply/:replyId').post(replyController.likeReply);
 
+router.route('/commentPreveiw').get(commentController.getCommentPreview);
+
 router
   .route('/replies/:commentId')
   .post(replyController.postReply)

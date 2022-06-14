@@ -68,6 +68,7 @@ exports.postReply = catchAsync(async (req, res) => {
     workoutImg,
     notifiedUserId,
     replyId,
+    commentId,
     notifiedUsername
   };
 

@@ -1,4 +1,5 @@
 const Comment = require('./../models/commentModel');
+const Reply = require('./../models/replyModel');
 const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('../utils/appError');
@@ -68,6 +69,17 @@ exports.postComment = catchAsync(async (req, res) => {
   createAndSendNotification('comment', notificationData);
 
   res.status(204).end();
+});
+
+exports.getCommentPreview = catchAsync(async (req, res, next) => {
+  let preview;
+  const { commentId, replyId } = req.body;
+  if (commentId) preview = await Comment.findById(commentId);
+  if (replyId) preview = await Reply.findById(replyId);
+
+  if (!preview) return next(new AppError('Preview not found', 404));
+
+  res.status(200).json({ status: 'success', preview: preview.comment });
 });
 
 exports.deleteMyComment = catchAsync(async (req, res, next) => {
