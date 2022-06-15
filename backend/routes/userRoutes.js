@@ -13,6 +13,8 @@ router.get('/logout', authController.logout);
 
 router.use(authController.protect);
 
+router.get('/searchUsers/:username', userController.getUserResults);
+
 router.patch('/updateMyPassword', authController.updatePassword);
 router.patch(
   '/updateMe',

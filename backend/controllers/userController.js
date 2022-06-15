@@ -114,6 +114,14 @@ exports.unfollowUser = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getUserResults = catchAsync(async (req, res, next) => {
+  const { username } = req.params;
+
+  const users = await User.find({ username }).select('photo username');
+
+  res.status(200).json({ status: 'success', users });
+});
+
 exports.getUserDetails = catchAsync(async (req, res, next) => {
   const { username } = req.params;
   const user = await User.findOne({ username }).select(
