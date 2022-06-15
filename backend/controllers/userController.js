@@ -117,7 +117,9 @@ exports.unfollowUser = catchAsync(async (req, res, next) => {
 exports.getUserResults = catchAsync(async (req, res, next) => {
   const { username } = req.params;
 
-  const users = await User.find({ username }).select('photo username');
+  const users = await User.find({
+    username: { $regex: `^${username}`, $options: 'i' }
+  }).select('photo username');
 
   res.status(200).json({ status: 'success', users });
 });
