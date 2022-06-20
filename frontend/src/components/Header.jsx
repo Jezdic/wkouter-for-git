@@ -64,6 +64,7 @@ const Header = ({ setUserAccountMenu }) => {
               ) : (
                 <IoMdNotificationsOutline
                   size={30}
+                  id='notificationsButton'
                   style={{ cursor: "pointer" }}
                   onClick={() => setShowNotifs(true)}
                 />

@@ -1,4 +1,4 @@
-import { useContext, useState, useCallback, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import useEscape from "../../utils/useEscape";
 
 import UserContext from "../../UserContext";
@@ -92,6 +92,20 @@ const Notifications = ({ toggle, setToggle, setNewNotifsCounter }) => {
 
     setNewNotifsCounter((c) => c - markedNotifsNumber);
   };
+
+  useEffect(() => {
+    const clickHandler = (e) => {
+      if (
+        e.target.id === "notifications" ||
+        e.target.id === "notificationsButton" ||
+        e.target.innerText === "preview" ||
+        e.target.innerText === "follow"
+      )
+        return;
+      setToggle(false);
+    };
+    window.addEventListener("click", clickHandler);
+  }, []);
 
   useEffect(() => {
     (async () => {
