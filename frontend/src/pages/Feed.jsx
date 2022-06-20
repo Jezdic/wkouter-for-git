@@ -58,7 +58,7 @@ const Feed = () => {
 
   return (
     <>
-      <FollowBox />
+      {/* <FollowBox /> */}
       {loading ? (
         <PulseLoader color='#0dbacc' />
       ) : noFollowers ? (

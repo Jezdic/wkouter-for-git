@@ -11,7 +11,7 @@ const Home = () => {
     <div className={styles.centered}>
       <div className={styles.container}>
         <Header setUserAccountMenu={setUserAccountMenu} />
-        <main>
+        <main style={{ marginTop: "10rem" }}>
           <AccountSettings
             toggle={userAccountMenu}
             setToggle={setUserAccountMenu}

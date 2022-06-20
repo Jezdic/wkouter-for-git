@@ -10,7 +10,7 @@
   position: relative;
 
   &:hover {
-    background-color: vars.$clr-primary-light;
+    background-color: gray;
   }
   &:hover .previewComment {
     display: block;

@@ -1,14 +1,20 @@
 @use "variables" as vars;
 
 .nav {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
+  background-color: vars.$clr-primary--lighter;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 6rem;
   padding: 0 2rem;
-  border: vars.$border-container;
+  border-bottom: vars.$border-container;
   box-shadow: inset;
   color: vars.$clr-text--light;
+  padding: 0 12rem;
 }
 
 .menu {
