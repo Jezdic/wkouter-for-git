@@ -2,22 +2,23 @@
 @use "../mixins";
 
 .container {
+  width: 60%;
   display: flex;
+  justify-content: space-around;
   gap: 1rem;
-  border: vars.$border-container;
   align-items: center;
+  margin: 0 auto;
   margin-bottom: 2rem;
-  padding: 2rem;
   color: vars.$clr-text--light;
 }
 
 .avatar {
+  // width: 33%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 
   img {
-    width: 8rem;
+    width: 10rem;
     border-radius: 50%;
     border: vars.$border-input;
   }
@@ -28,8 +29,31 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 3rem;
-  width: 30rem;
+  gap: 1rem;
+  // width: 66%;
+  padding-top: 1rem;
+}
+
+.nameAndFollow {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  button {
+    @include mixins.primary-btn;
+    padding: 0.25rem 2rem;
+    text-align: center;
+  }
+}
+
+.stats {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.15rem;
+
+  span {
+    font-weight: bold;
+  }
 }
 
 .info {

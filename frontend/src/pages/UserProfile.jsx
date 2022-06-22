@@ -3,23 +3,24 @@ import { useParams, Navigate } from "react-router-dom";
 
 import { PulseLoader } from "react-spinners";
 
-import UserWorkout from "../components/workout/UserWorkout";
 import UserDetails from "../components/feed/UserDetails";
 
-const style = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-};
+import styles from "../sass/profile/userProfile.module.scss";
+import WorkoutPreview from "../components/profile/WorkoutPreview";
 
 const UserProfile = () => {
   const { username } = useParams();
   const [workouts, setWorkouts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
-  const { photo: myPhoto, username: myUsername } = JSON.parse(
-    localStorage.getItem("user")
-  );
+  const {
+    photo: myPhoto,
+    username: myUsername,
+    following,
+  } = JSON.parse(localStorage.getItem("user"));
+
+  const checkFollowingUser = (username) =>
+    following.some((user) => user.username === username);
 
   useEffect(() => {
     (async () => {
@@ -55,20 +56,19 @@ const UserProfile = () => {
   if (user.username === myUsername) return <Navigate to='/home' />;
 
   return (
-    <div style={style}>
+    <div className={styles.container}>
       {loading ? (
         <PulseLoader color='#0dbacc' />
       ) : (
         <>
-          <UserDetails user={user} workoutCount={workouts.length} />
-          <div>
+          <UserDetails
+            user={user}
+            workoutCount={workouts.length}
+            followStatus={checkFollowingUser(user.username)}
+          />
+          <div className={styles.workoutsGrid}>
             {workouts.map((wr) => (
-              <UserWorkout
-                initWorkout={wr}
-                key={wr.title}
-                myUsername={myUsername}
-                myPhoto={myPhoto}
-              />
+              <WorkoutPreview workout={wr} key={wr._id} />
             ))}
           </div>
         </>

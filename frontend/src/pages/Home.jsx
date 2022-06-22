@@ -9,16 +9,14 @@ const Home = () => {
 
   return (
     <div className={styles.centered}>
-      <div className={styles.container}>
-        <Header setUserAccountMenu={setUserAccountMenu} />
-        <main style={{ marginTop: "10rem" }}>
-          <AccountSettings
-            toggle={userAccountMenu}
-            setToggle={setUserAccountMenu}
-          />
-          <Outlet />
-        </main>
-      </div>
+      <Header setUserAccountMenu={setUserAccountMenu} />
+      <main style={{ marginTop: "8rem" }}>
+        <AccountSettings
+          toggle={userAccountMenu}
+          setToggle={setUserAccountMenu}
+        />
+        <Outlet />
+      </main>
     </div>
   );
 };

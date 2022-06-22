@@ -1,12 +1,14 @@
-.heading {
-  display: flex;
-  gap: 0.5rem;
-  align-items: flex-end;
-  img {
-    width: 64px;
-    border-radius: 0.5rem;
-  }
-  h1 {
-    font-weight: normal;
-  }
+@use "../variables" as vars;
+
+.container {
+  width: 100%;
+}
+
+.workoutsGrid {
+  border-top: vars.$border-container;
+  padding-top: 2rem;
+
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
 }

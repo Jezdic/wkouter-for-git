@@ -1,9 +1,9 @@
 import styles from "../../sass/profile/userDetails.module.scss";
-import { GiStairsGoal, GiWeightLiftingUp } from "react-icons/gi";
-import { BiTime } from "react-icons/bi";
+import { GiStairsGoal } from "react-icons/gi";
+import { BiTime, BiUserCheck } from "react-icons/bi";
 import EditGoal from "../profile/EditGoal";
 
-const UserDetails = ({ user, workoutCount, isLoggedInUser }) => {
+const UserDetails = ({ user, workoutCount, isLoggedInUser, followStatus }) => {
   return (
     <div className={styles.container}>
       <div className={styles.avatar}>
@@ -11,18 +11,28 @@ const UserDetails = ({ user, workoutCount, isLoggedInUser }) => {
           alt='user'
           src={`${import.meta.env.VITE_STATIC_URL}/img/users/${user.photo}`}
         />
-        <span>{user.username}</span>
       </div>
       <div className={styles.details}>
-        <div className={styles.info}>
-          <div className={styles.centered}>
-            <GiWeightLiftingUp />
-            <span>{workoutCount} workouts</span>
+        <div className={styles.nameAndFollow}>
+          <h3>{user.username}</h3>
+          {followStatus ? (
+            <button>
+              <BiUserCheck style={{ display: "block" }} size={27} />
+            </button>
+          ) : (
+            <button>follow</button>
+          )}
+        </div>
+        <div className={styles.stats}>
+          <div>
+            <span>{workoutCount}</span> workouts
           </div>
-          <span className={styles.centered}>
-            <BiTime /> workouter since{"  "}
-            {new Date(user.joinedSince).toLocaleDateString("en-us")}
-          </span>
+          <div>
+            <span>10</span> followers
+          </div>
+          <div>
+            <span>9</span> following
+          </div>
         </div>
         <div className={styles.centered}>
           <GiStairsGoal />{" "}

@@ -1,0 +1,33 @@
+.container {
+  cursor: pointer;
+  position: relative;
+
+  &:hover img {
+    opacity: 0.2;
+  }
+
+  &:hover .stats {
+    display: flex;
+  }
+}
+
+.img {
+  width: 100%;
+}
+
+.stats {
+  display: none;
+  gap: 1.5rem;
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  div {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+}
