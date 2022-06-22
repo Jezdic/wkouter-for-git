@@ -70,6 +70,20 @@
   color: vars.$clr-text--light;
 }
 
+.unfollowIcon {
+  display: none;
+}
+
+.followedBtn {
+  &:hover .followedIcon {
+    display: none;
+  }
+
+  &:hover .unfollowIcon {
+    display: block;
+  }
+}
+
 @media (max-width: 800px) {
   .container {
     flex-direction: column;

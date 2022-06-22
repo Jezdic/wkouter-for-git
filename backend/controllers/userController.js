@@ -79,6 +79,10 @@ exports.followUser = catchAsync(async (req, res, next) => {
     $push: { following: followedUser._id }
   });
 
+  await User.findByIdAndUpdate(followedUser._id, {
+    $inc: { followersNum: 1 }
+  });
+
   const { username: notifierUsername, photo: notifierImg } = req.user;
 
   const notificationData = {
@@ -109,6 +113,10 @@ exports.unfollowUser = catchAsync(async (req, res, next) => {
     $pull: { following: followedUser._id }
   });
 
+  await User.findByIdAndUpdate(followedUser._id, {
+    $inc: { followersNum: -1 }
+  });
+
   res.status(200).json({
     status: 'success'
   });
@@ -127,7 +135,7 @@ exports.getUserResults = catchAsync(async (req, res, next) => {
 exports.getUserDetails = catchAsync(async (req, res, next) => {
   const { username } = req.params;
   const user = await User.findOne({ username }).select(
-    'photo joinedSince goals username'
+    'photo joinedSince goals username following followersNum'
   );
   if (!user) return next(new AppError('User not found', 404));
 

@@ -10,6 +10,9 @@ import { ImSad } from "react-icons/im";
 import styles from "../sass/profile/userProfile.module.scss";
 import WorkoutPreview from "../components/profile/WorkoutPreview";
 
+const checkFollowingUser = (username, following) =>
+  following.some((user) => user.username === username);
+
 const UserProfile = () => {
   const { username } = useParams();
   const [workouts, setWorkouts] = useState([]);
@@ -20,9 +23,6 @@ const UserProfile = () => {
     username: myUsername,
     following,
   } = JSON.parse(localStorage.getItem("user"));
-
-  const checkFollowingUser = (username) =>
-    following.some((user) => user.username === username);
 
   useEffect(() => {
     (async () => {
@@ -68,7 +68,7 @@ const UserProfile = () => {
           <UserDetails
             user={user}
             workoutCount={workouts.length}
-            followStatus={checkFollowingUser(user.username)}
+            followStatus={checkFollowingUser(username, following)}
           />
           {workouts.length > 0 ? (
             <div className={styles.workoutsGrid}>

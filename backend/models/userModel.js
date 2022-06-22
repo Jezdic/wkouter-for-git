@@ -48,7 +48,11 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  goals: String
+  goals: String,
+  followersNum: {
+    type: Number,
+    default: 0
+  }
 });
 
 userSchema.pre('save', async function(next) {
