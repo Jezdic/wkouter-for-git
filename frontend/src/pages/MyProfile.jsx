@@ -27,7 +27,7 @@ const MyProfile = () => {
     (async () => {
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/workouts?sort=createdAt`,
+          `${import.meta.env.VITE_API_URL}/workouts?sort=-createdAt`,
           {
             headers: {
               authorization: localStorage.getItem("token"),

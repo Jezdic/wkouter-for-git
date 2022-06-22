@@ -15,13 +15,14 @@ const UserDetails = ({ user, workoutCount, isLoggedInUser, followStatus }) => {
       <div className={styles.details}>
         <div className={styles.nameAndFollow}>
           <h3>{user.username}</h3>
-          {followStatus ? (
-            <button>
-              <BiUserCheck style={{ display: "block" }} size={27} />
-            </button>
-          ) : (
-            <button>follow</button>
-          )}
+          {!isLoggedInUser &&
+            (followStatus ? (
+              <button>
+                <BiUserCheck style={{ display: "block" }} size={27} />
+              </button>
+            ) : (
+              <button>follow</button>
+            ))}
         </div>
         <div className={styles.stats}>
           <div>

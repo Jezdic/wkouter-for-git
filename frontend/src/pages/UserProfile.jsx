@@ -5,6 +5,8 @@ import { PulseLoader } from "react-spinners";
 
 import UserDetails from "../components/feed/UserDetails";
 
+import { ImSad } from "react-icons/im";
+
 import styles from "../sass/profile/userProfile.module.scss";
 import WorkoutPreview from "../components/profile/WorkoutPreview";
 
@@ -32,7 +34,9 @@ const UserProfile = () => {
         };
 
         const workReq = await fetch(
-          `${import.meta.env.VITE_API_URL}/workouts/user/${username}`,
+          `${
+            import.meta.env.VITE_API_URL
+          }/workouts/user/${username}?sort=-createdAt`,
           options
         );
         const workRes = await workReq.json();
@@ -66,11 +70,18 @@ const UserProfile = () => {
             workoutCount={workouts.length}
             followStatus={checkFollowingUser(user.username)}
           />
-          <div className={styles.workoutsGrid}>
-            {workouts.map((wr) => (
-              <WorkoutPreview workout={wr} key={wr._id} />
-            ))}
-          </div>
+          {workouts.length > 0 ? (
+            <div className={styles.workoutsGrid}>
+              {workouts.map((wr) => (
+                <WorkoutPreview workout={wr} key={wr._id} />
+              ))}
+            </div>
+          ) : (
+            <div className={styles.noWorkouts}>
+              user has no workouts yet
+              <ImSad />
+            </div>
+          )}
         </>
       )}
     </div>
