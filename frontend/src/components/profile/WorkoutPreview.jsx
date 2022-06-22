@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import { AiFillHeart } from "react-icons/ai";
 import { FaComment } from "react-icons/fa";
 
-const WorkoutPreview = ({ workout: { photo, likes, numComments, _id } }) => {
+const WorkoutPreview = ({
+  workout: { photo, likes, numComments, numReplies, _id },
+}) => {
   return (
     <Link to={`/home/workout/${_id}`}>
       <div className={styles.container}>
@@ -16,7 +18,7 @@ const WorkoutPreview = ({ workout: { photo, likes, numComments, _id } }) => {
           </div>
           <div>
             <FaComment size={30} />
-            {numComments}
+            {numComments + numReplies}
           </div>
         </div>
         <img src={photo} className={styles.img} />
