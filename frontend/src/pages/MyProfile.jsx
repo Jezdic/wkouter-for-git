@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 
-import Workout from "../components/workout/Workout";
-import UserWorkout from "../components/workout/UserWorkout";
+import WorkoutPreview from "../components/profile/WorkoutPreview";
 
 import { PulseLoader } from "react-spinners";
 import { AiOutlinePlusCircle } from "react-icons/ai";
@@ -77,19 +76,9 @@ const MyProfile = () => {
             <span>create workout</span>
           </div>
           {workouts.length === 0 && <FirstWorkout />}
-          <div>
+          <div className={styles.workoutsGrid}>
             {workouts.map((workout) => (
-              <UserWorkout
-                initWorkout={workout}
-                key={workout._id}
-                myUsername={user.username}
-                myPhoto={user.photo}
-                editProps={{
-                  setEditWorkoutMenu,
-                  setWorkouts,
-                  setEditingWorkout,
-                }}
-              />
+              <WorkoutPreview workout={workout} key={workout._id} />
             ))}
           </div>
         </>

@@ -10,8 +10,9 @@ const cloudinary = require('../utils/cloudinary');
 const createAndSendNotification = require('../utils/notificationFactory');
 
 exports.createWorkout = catchAsync(async (req, res, next) => {
-  console.log(req.body);
   const result = await cloudinary.uploader.upload(req.file.path);
+
+  console.log({ result });
 
   const workout = await Workout.create({
     ...req.body,
