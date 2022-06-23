@@ -3,7 +3,6 @@ import UserContext from "../UserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { PulseLoader } from "react-spinners";
 
-import FollowBox from "../components/feed/FollowBox";
 import UserWorkout from "../components/workout/UserWorkout";
 
 const Feed = () => {
@@ -58,7 +57,6 @@ const Feed = () => {
 
   return (
     <>
-      {/* <FollowBox /> */}
       {loading ? (
         <PulseLoader color='#0dbacc' />
       ) : noFollowers ? (

@@ -62,7 +62,9 @@ const UserProfile = () => {
   return (
     <div className={styles.container}>
       {loading ? (
-        <PulseLoader color='#0dbacc' />
+        <div className={styles.loader}>
+          <PulseLoader color='#0dbacc' />
+        </div>
       ) : (
         <>
           <UserDetails

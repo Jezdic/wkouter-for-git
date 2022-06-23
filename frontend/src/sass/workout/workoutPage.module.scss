@@ -1,0 +1,11 @@
+@use "../variables" as vars;
+
+.backArrow {
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s;
+
+  &:hover {
+    color: vars.$clr-secondary;
+  }
+}

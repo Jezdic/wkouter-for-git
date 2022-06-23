@@ -121,10 +121,10 @@ const AccountSettings = ({ toggle, setToggle }) => {
     (animationStyles, item) =>
       item && (
         <animated.div className={styles.container} style={animationStyles}>
-          <AiOutlineMinusCircle
-            className={styles.exitBtn}
-            onClick={() => setToggle(false)}
-          />
+          <div className={styles.exitBtn}>
+            esc
+            <AiOutlineMinusCircle onClick={() => setToggle(false)} />
+          </div>
           <img
             className={styles.avatar}
             alt='user'

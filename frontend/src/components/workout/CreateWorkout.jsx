@@ -120,11 +120,10 @@ const CreateWorkout = ({ toggle, setToggle, setWorkouts }) => {
     (animationStyles, item) =>
       item && (
         <animated.div className={styles.container} style={animationStyles}>
-          <AiOutlineMinusCircle
-            size={20}
-            className={styles.exitBtn}
-            onClick={() => setToggle(false)}
-          />
+          <div className={styles.exitBtn}>
+            esc
+            <AiOutlineMinusCircle size={20} onClick={() => setToggle(false)} />
+          </div>
           <form className={styles.form}>
             <label htmlFor='title'>title</label>
             <input name='title' type='text' onChange={handleChange}></input>

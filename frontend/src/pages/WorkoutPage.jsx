@@ -2,11 +2,15 @@ import { useState, useEffect, useContext } from "react";
 
 import UserContext from "../UserContext";
 
-import { useParams, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+import { MdKeyboardBackspace } from "react-icons/md";
 
 import UserWorkout from "../components/workout/UserWorkout";
 
 import { PulseLoader } from "react-spinners";
+
+import styles from "../sass/workout/workoutPage.module.scss";
 
 const WorkoutPage = () => {
   const { workoutId } = useParams();
@@ -46,13 +50,20 @@ const WorkoutPage = () => {
     );
 
   return (
-    <UserWorkout
-      initWorkout={workout}
-      key={workout._id}
-      type='feed'
-      myUsername={user.username}
-      myPhoto={user.photo}
-    />
+    <div>
+      <MdKeyboardBackspace
+        className={styles.backArrow}
+        onClick={() => history.back()}
+        size='50'
+      />
+      <UserWorkout
+        initWorkout={workout}
+        key={workout._id}
+        type='feed'
+        myUsername={user.username}
+        myPhoto={user.photo}
+      />
+    </div>
   );
 };
 
