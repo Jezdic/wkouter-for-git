@@ -95,11 +95,15 @@ const Notifications = ({ toggle, setToggle, setNewNotifsCounter }) => {
 
   useEffect(() => {
     const clickHandler = (e) => {
+      console.log({ id: e.target.id });
       if (
         e.target.id === "notifications" ||
         e.target.id === "notificationsButton" ||
         e.target.innerText === "preview" ||
-        e.target.innerText === "follow"
+        e.target.innerText === "follow" ||
+        e.target.id === "closePreview" ||
+        e.target.id === "likePreview" ||
+        e.target.id === "replyPreviewInput"
       )
         return;
       setToggle(false);

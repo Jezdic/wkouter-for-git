@@ -62,7 +62,13 @@ const Notification = ({
   const handleClickNotif = async (e) => {
     if (!readStatus) await markNotifAsRead();
 
-    if (e.target.innerText === "follow" || e.target.innerText === "preview")
+    if (
+      e.target.innerText === "follow" ||
+      e.target.innerText === "preview" ||
+      e.target.id === "closePreview" ||
+      e.target.id === "likePreview" ||
+      e.target.id === "replyPreviewInput"
+    )
       return;
 
     setToggle(false);
@@ -91,8 +97,8 @@ const Notification = ({
   };
 
   return (
-    <>
-      <div className={styles.container} onClick={handleClickNotif}>
+    <div onClick={handleClickNotif}>
+      <div className={styles.container}>
         {!readStatus && <div className={styles.newNotifMark}></div>}
         <div className={styles.message}>
           <img
@@ -136,7 +142,7 @@ const Notification = ({
           replyId={replyId}
         />
       )}
-    </>
+    </div>
   );
 };
 

@@ -77,10 +77,7 @@ const UserProfile = () => {
               ))}
             </div>
           ) : (
-            <div className={styles.noWorkouts}>
-              user has no workouts yet
-              <ImSad />
-            </div>
+            <div className={styles.noWorkouts}>user has no workouts yet</div>
           )}
         </>
       )}

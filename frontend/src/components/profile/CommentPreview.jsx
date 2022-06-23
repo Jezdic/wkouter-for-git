@@ -98,12 +98,17 @@ const CommentPreview = ({ setDisplayCommentPreview, commentId, replyId }) => {
     <div className={styles.container}>
       <AiOutlineClose
         className={styles.closeBtn}
+        id='closePreview'
         onClick={() => setDisplayCommentPreview(false)}
       />
       <div>
         <div>{preview.comment}</div>
         <div onClick={handleLikeComment} className={styles.actionBtn}>
-          {isLiked ? <AiFillHeart size={15} /> : <AiOutlineHeart size={15} />}
+          {isLiked ? (
+            <AiFillHeart size={15} />
+          ) : (
+            <AiOutlineHeart size={15} id='likePreview' />
+          )}
         </div>
       </div>
       {replies.map((reply) => (
@@ -123,6 +128,7 @@ const CommentPreview = ({ setDisplayCommentPreview, commentId, replyId }) => {
         />
         <input
           value={reply}
+          id='replyPreviewInput'
           placeholder='write a reply'
           className={styles.commentInput}
           onChange={(e) => setReply(e.target.value)}
