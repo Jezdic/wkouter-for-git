@@ -7,10 +7,9 @@ import Exercises from "./Exercises";
 import { AiOutlineHeart, AiFillHeart, AiOutlineComment } from "react-icons/ai";
 
 import styles from "../../sass/feed/userWorkout.module.scss";
-import WorkoutActions from "./WorkoutActions";
 import Comments from "./Comments";
 
-const UserWorkout = ({ initWorkout, type, myUsername, myPhoto, editProps }) => {
+const UserWorkout = ({ initWorkout, type, myUsername, myPhoto }) => {
   const [workout, setWorkout] = useState(initWorkout);
   const [isLiked, setIsLiked] = useState(workout.likes.includes(myUsername));
   const [likesNum, setLikesNum] = useState(workout.likes.length);
@@ -81,7 +80,6 @@ const UserWorkout = ({ initWorkout, type, myUsername, myPhoto, editProps }) => {
         type === "feed" && styles.containerFeed
       }`}
     >
-      {editProps && <WorkoutActions editProps={editProps} workout={workout} />}
       {type === "feed" && (
         <div className={styles.userInfo}>
           <img

@@ -11,6 +11,9 @@
   flex-direction: column;
   padding: 1rem;
   color: vars.$clr-text--light;
+  max-height: 40rem;
+  overflow-y: scroll;
+  @include mixins.scrollbars();
 }
 
 .header {

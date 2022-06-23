@@ -101,6 +101,7 @@ const Notifications = ({ toggle, setToggle, setNewNotifsCounter }) => {
         e.target.id === "notificationsButton" ||
         e.target.innerText === "preview" ||
         e.target.innerText === "follow" ||
+        e.target.innerText === "load previous" ||
         e.target.id === "closePreview" ||
         e.target.id === "likePreview" ||
         e.target.id === "replyPreviewInput"

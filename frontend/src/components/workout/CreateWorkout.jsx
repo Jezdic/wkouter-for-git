@@ -127,7 +127,7 @@ const CreateWorkout = ({ toggle, setToggle, setWorkouts }) => {
           <form className={styles.form}>
             <label htmlFor='title'>title</label>
             <input name='title' type='text' onChange={handleChange}></input>
-            <label htmlFor='plannedDate'>date</label>
+            <label htmlFor='plannedDate'>planned date</label>
             <input
               name='plannedDate'
               type='date'

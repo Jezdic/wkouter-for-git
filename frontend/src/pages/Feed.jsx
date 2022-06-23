@@ -19,7 +19,7 @@ const Feed = () => {
       const req = await fetch(
         `${
           import.meta.env.VITE_API_URL
-        }/workouts/getFeed?page=${page}&limit=${limit}&sort=-plannedDate`,
+        }/workouts/getFeed?page=${page}&limit=${limit}&sort=-createdAt`,
         {
           headers: {
             authorization: localStorage.getItem("token"),

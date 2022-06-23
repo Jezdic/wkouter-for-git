@@ -3,6 +3,7 @@
 
 .createBtn {
   color: vars.$clr-text--light;
+  margin-bottom: 2rem;
   @include mixins.center-col;
   cursor: pointer;
   transition: color 0.2s;
@@ -13,7 +14,7 @@
 
 .workoutsGrid {
   border-top: vars.$border-container;
-  padding-top: 2rem;
+  padding: 2rem 0;
 
   display: grid;
   gap: 1rem;
